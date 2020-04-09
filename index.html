@@ -15,16 +15,42 @@
     <!-- This is will be movie input form control will go -->
     <form id="movie-form">
       <div class="form-group">
-        <h2>Movies Today</h2>
-        <p >Pick a movie you would like to see:</p>
-        <input type="radio" id="movie1" name="movie"> Frozen 2<br>
-        <input type="radio" id="movie2" name="movie"> Deadpool<br>
-        <input type="radio" id="movie3" name="movie"> Forgetting Sarah Marshall<br>
-        <input type="radio" id="movie4" name="movie"> Cats<br>
-        <br>
+        <form id="movieTitle">
+          <h2>Movies Today</h2>
+          <p >Pick a movie you would like to see:</p>
+          <input type="radio" id="movie1" name="movie" value="new"> Frozen 2<br>
+          <input type="radio" id="movie2" name="movie" value="old"> Deadpool<br>
+          <input type="radio" id="movie3" name="movie" value="old"> Forgetting Sarah Marshall<br>
+          <input type="radio" id="movie4" name="movie" value="new"> Cats<br>
+          <br>
+        </form>  
       </div>
-      
+      <!-- This will be Age group radio buttons -->
+      <div class="form-group">
+        <form id="movieAge">
+          <h2>What's Your Age Group</h2>
+          <p >Pick your age group:</p>
+          <input type="radio" id="age1" name="age" value="senior">Senior: 61+<br>
+          <input type="radio" id="age2" name="age" value="adult">Adult: 17-60<br>
+          <input type="radio" id="age2" name="age" value="child"> Child: 1-16<br>
+        </form>  
+      </div>
+      <!-- This will be T.O.D radio buttons -->
+      <div class="form-group">
+        <form id="movieTime">
+          <h2>What time of day would you like to see the movie?</h2>
+          <p >Pick a time:</p>
+          <input type="radio" id="age1" name="time" value="morning"> Morning Matinee<br>
+          <input type="radio" id="age2" name="time" value="evening"> Evening Matinee<br>
+        </form>  
+      </div>
+      <button type="submit" class="btn-danger">Get My Ticket</button>
     </form>
+    <div id="result">  
+      <ul>
+
+      </ul>
+    </div>  
   </div>
 </body>
 </html>

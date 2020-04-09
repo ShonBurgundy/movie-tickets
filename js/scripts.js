@@ -5,34 +5,48 @@ this.movieAge = movieAge;
 this.moviePrice = 5;
 }
 
-// for senior & child tickets "new movie" and "night"
 Ticket.prototype.ticketPrice = function() {
- /* if ((this.movieTitle === "new" && this.movieTime === "evening" && this.movieAge === "senior") || (this.movieTitle === "new" && this.movieTime === "evening" && this.movieAge === "child")) {
-    this.moviePrice = 5;
+  var price = this.moviePrice;
+
+  if ((this.movieTitle === "new") || (this.movieTime === "")) {
+    price *= 2;
+  } else if (this.movieTitle === "old") {
+    price += 1;
   } 
-  return this.moviePrice*/
+  
+  if (this.movieTime === "evening") {
+    price *= 2;
+  } else if (this.movieTime === "morning") {
+    //morning tickets are standard price
+  } 
+  
+  if (this.movieAge === "adult") {
+    price *= 2;
+  } else if (this.movieAge === "child" || this.moviePrice === "senior") {
+    //child ticket price is standard
+  } 
 
-
-
-
-
-if ((this.movieTitle === "new") || (this.movieTime === "")) {
-  return this.moviePrice * 2;
-} else if (this.movieTitle === "old") {
-  return this.moviePrice + 1;
-} else if (this.movieTime === "evening") {
-  return this.moviePrice * 2;
-} else if (this.movieTime === "morning") {
-  return this.moviePrice;
-} else if (this.movieAge === "senior") {
-  return this.moviePrice * 2;
-} else if (this.movieAge === "child") {
-  return this.moviePrice
-}  
-
+  return price
 }
 
-var ticket = new Ticket ("old", "evening", "senior")
-var price = ticket.ticketPrice()
-console.log ("ticket", ticket);
-console.log ("price", price);
+
+
+// UI ------
+var ticket = new Ticket();
+
+$(document).ready(function(){
+  $("form#movie-form").click(function(event){
+    event.preventDefault();
+    var movieTitle = $("#movieTitle").val();
+    var movieAge = $("#movieAge").val();
+    var movieTime = $("#movieTime").val();
+    $("#movieTitle").val;
+    $("#movieAge").val;
+    $("#movieTime").val;
+
+    var newTicket = new Ticket(movieTitle, movieAge, movieTime);
+    newTicket.ticketPrice();
+    $("#result").text("movie: " + this.movieTitle + "price:" + this.moviePrice);
+  })
+})
+
