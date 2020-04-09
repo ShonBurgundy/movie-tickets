@@ -8,49 +8,73 @@
     <title>Movie Tickets</title>
   </head>
 <body>
-  <div class="container">
-    <div class="jumbotron">
-      <h1>Movie Ticket Cost Generator</h1>
-    </div>
-    <!-- This is will be movie input form control will go -->
-    <form id="movie-form">
-      <div class="form-group">
-        <form id="movieTitle">
-          <h2>Movies Today</h2>
-          <p >Pick a movie you would like to see:</p>
-          <input type="radio" id="movie1" name="movie" value="new"> Frozen 2<br>
-          <input type="radio" id="movie2" name="movie" value="old"> Deadpool<br>
-          <input type="radio" id="movie3" name="movie" value="old"> Forgetting Sarah Marshall<br>
-          <input type="radio" id="movie4" name="movie" value="new"> Cats<br>
-          <br>
-        </form>  
+  <form class="form-group">
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Movie Ticket Cost Generator</h1>
       </div>
-      <!-- This will be Age group radio buttons -->
-      <div class="form-group">
-        <form id="movieAge">
-          <h2>What's Your Age Group</h2>
-          <p >Pick your age group:</p>
-          <input type="radio" id="age1" name="age" value="senior">Senior: 61+<br>
-          <input type="radio" id="age2" name="age" value="adult">Adult: 17-60<br>
-          <input type="radio" id="age2" name="age" value="child"> Child: 1-16<br>
-        </form>  
+      <!-- This is will be movie input form control will go -->
+        <h2>Movies Today</h2>
+        <p >Pick a movie you would like to see:</p>
+      <div class="radio"> 
+        <label>     
+          <input type="radio" name="movie" value="new" checked> Frozen 2<br>
+        </label>  
+      </div>  
+      <div class="radio"> 
+        <label>     
+          <input type="radio" name="movie" value="new"> Cats<br>
+        </label>  
+      </div>   
+      <div class="radio"> 
+        <label>     
+          <input type="radio" name="movie" value="old"> Deadpool 2<br>
+        </label>  
+      </div> 
+      <div class="radio"> 
+        <label>     
+          <input type="radio" name="movie" value="old"> Forgetting Sara Marshall<br>
+        </label>  
+      </div>      
+        <!-- This will be Age group radio buttons -->
+      <h2>What's Your Age Group</h2>
+      <p >Pick your age group:</p>
+      <div class="radio"> 
+        <label>     
+          <input type="radio" name="age" value="senior" checked> Senior: 61+<br>
+        </label>  
+      </div>  
+      <div class="radio"> 
+        <label>     
+          <input type="radio" name="age" value="adult">Adult: 17-60<br>
+        </label>  
+      </div>   
+      <div class="radio"> 
+        <label>     
+          <input type="radio" name="age" value="child"> Child: 1-16<br>
+        </label>  
+      </div> 
+      
+        <!-- This will be T.O.D radio buttons -->
+      <h2>What time of day would you like to see the movie?</h2>
+      <p >Pick a time:</p>
+      <div class="radio"> 
+        <label>     
+          <input type="radio" name="time" value="morning" checked> Morning Showing<br>
+        </label>  
+      </div>  
+      <div class="radio"> 
+        <label>     
+          <input type="radio" name="time" value="evening">Evening Showing<br>
+        </label>  
       </div>
-      <!-- This will be T.O.D radio buttons -->
-      <div class="form-group">
-        <form id="movieTime">
-          <h2>What time of day would you like to see the movie?</h2>
-          <p >Pick a time:</p>
-          <input type="radio" id="age1" name="time" value="morning"> Morning Matinee<br>
-          <input type="radio" id="age2" name="time" value="evening"> Evening Matinee<br>
-        </form>  
+      <button type="submit" class="btn btn-info">Submit</button>
+      <div class ="results">
+        <div class="head2"><h2>Ticket Price</h2></div>
+          <h4><span id="showTime"></span></h4>
+          <h4>A Ticket For This Showing Is $<span id="priceOutput"></span></h4>
       </div>
-      <button type="submit" class="btn-danger">Get My Ticket</button>
-    </form>
-    <div id="result">  
-      <ul>
-
-      </ul>
     </div>  
-  </div>
+  </form>
 </body>
 </html>

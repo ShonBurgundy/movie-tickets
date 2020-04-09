@@ -2,51 +2,49 @@ function Ticket(movieTitle, movieTime, movieAge) {
 this.movieTitle = movieTitle;
 this.movieTime = movieTime;
 this.movieAge = movieAge;
-this.moviePrice = 5;
+
 }
 
 Ticket.prototype.ticketPrice = function() {
-  var price = this.moviePrice;
-
-  if ((this.movieTitle === "new") || (this.movieTime === "")) {
-    price *= 2;
+  this.price = 5;
+  if (this.movieTitle === "new"){
+    this.price += 1;
   } else if (this.movieTitle === "old") {
-    price += 1;
   } 
-  
+ 
   if (this.movieTime === "evening") {
-    price *= 2;
+    this.price *= 2;
   } else if (this.movieTime === "morning") {
     //morning tickets are standard price
   } 
   
   if (this.movieAge === "adult") {
-    price *= 2;
-  } else if (this.movieAge === "child" || this.moviePrice === "senior") {
+    this.price *= 2;
+  } else if (this.movieAge === "child" || this.price === "senior") {
     //child ticket price is standard
   } 
 
-  return price
+  return this.price
 }
 
 
 
-// UI ------
-var ticket = new Ticket();
+// UI -----
 
 $(document).ready(function(){
-  $("form#movie-form").click(function(event){
+  $("form").submit(function(event){
     event.preventDefault();
-    var movieTitle = $("#movieTitle").val();
-    var movieAge = $("#movieAge").val();
-    var movieTime = $("#movieTime").val();
-    $("#movieTitle").val;
-    $("#movieAge").val;
-    $("#movieTime").val;
+    var movieTitle = $("input:radio[name=movie]:checked").val();
+    var movieAge = $("input:radio[name=age]:checked").val();
+    var movieTime = $("input:radio[name=time]:checked").val();
 
-    var newTicket = new Ticket(movieTitle, movieAge, movieTime);
-    newTicket.ticketPrice();
-    $("#result").text("movie: " + this.movieTitle + "price:" + this.moviePrice);
+    console.log("input title: ", movieTitle);
+
+    var ticket = new Ticket(movieTitle, movieTime, movieAge);
+    ticket.ticketPrice();
+    $("#priceOutput").html(ticket.price);
+    console.log(movieTime);
   })
+  
 })
 
